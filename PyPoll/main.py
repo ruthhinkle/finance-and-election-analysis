@@ -23,8 +23,9 @@ import csv
 
 #set file path
 csvpath = os.path.join("Resources", "election_data.csv")
-dates = []
-profit_losses = []
+voter_ID = []
+county = []
+candidate = []
 
 #READ / INTERPRET
 #open the CSV
@@ -32,42 +33,46 @@ with open(csvpath, mode= "r") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
 
     #define variable for header, 
-    # header = next(csvreader)
-    # csvdata = list(csvreader)
+    header = next(csvreader)
+    csvdata = list(csvreader)
 
-#define month count and sum changes
-sum_changes = 0
-month_count = 0
+#define total votes, 
+total_votes = 0
+candidate_count = 0
 
 #loop through rows
-for i,row in enumerate(csvdata):
+for row in csvdata:
         
-    #sum count of months
-    month_count += 1
+    #count the total votes
+    total_votes = [i,0]
+
+    #count total votes per candidate w/ votes
+    #identify election winner
+    #month_count += 1
     
     #average changes
-    try:
-        sum_changes += int(csvdata[i+1][1]) - int(row[1])
-    except:
-        sum_changes += 0
+    #try:
+        #sum_changes += int(csvdata[i+1][1]) - int(row[1])
+    #except:
+        #sum_changes += 0
 
-    #append total profit/loss
-    profit_losses.append(int(row[1]))
-    dates.append(row[0])
+    #append total votes
+    total_votes.append(int(((row[0]))
+    #dates.append(row[0])
     #define list
 
-
-
+print(total_votes)
 #DEFINE WHAT TO PRINT
 #print # of months
-analysis_text = (
-    "Financial Analysis \n"
-    f"Total Months: {month_count} \n"
-    f"Total: {month_count} \n"
-    f"Average Change: ${round(sum_changes/month_count, 2)} \n"
-    f"Greatest Increase in Profits: {dates[profit_losses.index(max(profit_losses))]} {max(profit_losses)} \n"
-
-    )
+# analysis_text = (
+#     "Election Results \n"
+#     "------------------------- \n"
+#     f"Total Votes: {total_votes} \n"
+#     "------------------------- \n"    
+    
+#     )
+#     #list of candidates w/ vote total and percent of votes
+    #winner
 #print analysis text
 print(analysis_text)
 
