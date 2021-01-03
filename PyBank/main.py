@@ -42,6 +42,9 @@ for i,row in enumerate(csvdata):
     #sum count of months
     month_count += 1
     
+    #sum total profit/losses
+    total_change = sum(profit_losses)
+
     #average changes
     try:
         sum_changes += int(csvdata[i+1][1]) - int(row[1])
@@ -51,7 +54,6 @@ for i,row in enumerate(csvdata):
     #append total profit/loss
     profit_losses.append(int(row[1]))
     dates.append(row[0])
-    #define list
 
 
 
@@ -59,10 +61,12 @@ for i,row in enumerate(csvdata):
 #print # of months
 analysis_text = (
     "Financial Analysis \n"
+    "------------------------------ \n"
     f"Total Months: {month_count} \n"
-    f"Total: {month_count} \n"
+    f"Total: ${total_change} \n"
     f"Average Change: ${round(sum_changes/month_count, 2)} \n"
-    f"Greatest Increase in Profits: {dates[profit_losses.index(max(profit_losses))]} {max(profit_losses)} \n"
+    f"Greatest Increase in Profits: {dates[profit_losses.index(max(profit_losses))]} ${max(profit_losses)} \n"
+    f"Greatest Decrease in Losses: {dates[profit_losses.index(min(profit_losses))]} ${min(profit_losses)} \n"
 
     )
 #print analysis text
