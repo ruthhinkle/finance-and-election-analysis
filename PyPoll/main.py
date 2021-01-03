@@ -37,14 +37,14 @@ with open(csvpath, mode= "r") as csvfile:
     csvdata = list(csvreader)
 
 #define total votes, 
-total_votes = 0
+voter_count = 0
 candidate_count = 0
 
 #loop through rows
-for row in csvdata:
+for i,row in enumerate(csvdata):
         
     #count the total votes
-    total_votes = [i,0]
+    voter_count += 1
 
     #count total votes per candidate w/ votes
     #identify election winner
@@ -57,26 +57,21 @@ for row in csvdata:
         #sum_changes += 0
 
     #append total votes
-    total_votes.append(int(((row[0]))
+    #total_votes.append(int(((row[0]))
     #dates.append(row[0])
     #define list
 
-print(total_votes)
 #DEFINE WHAT TO PRINT
-#print # of months
-# analysis_text = (
-#     "Election Results \n"
-#     "------------------------- \n"
-#     f"Total Votes: {total_votes} \n"
-#     "------------------------- \n"    
-    
-#     )
-#     #list of candidates w/ vote total and percent of votes
-    #winner
-#print analysis text
+analysis_text = (
+    "Election Results \n"
+    "------------------------- \n"
+    f"Total Votes: {voter_count} \n"
+)
+
+# #PRINT EVERYTHING
+#print to terminal
 print(analysis_text)
 
-#PRINT EVERYTHING
 #print to text file
 with open("Analysis/analysis.txt", mode= "w") as txtfile:
     txtfile.write(analysis_text)
