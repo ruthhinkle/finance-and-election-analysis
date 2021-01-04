@@ -25,7 +25,7 @@ import csv
 csvpath = os.path.join("Resources", "election_data.csv")
 voter_ID = []
 county = []
-candidate = []
+candidate = {}
 
 #READ / INTERPRET
 #open the CSV
@@ -39,6 +39,10 @@ with open(csvpath, mode= "r") as csvfile:
 #define total votes, 
 voter_count = 0
 candidate_count = 0
+# khan = 0
+# correy = 0
+# otooley = 0
+# li = 0
 
 #loop through rows
 for i,row in enumerate(csvdata):
@@ -46,7 +50,12 @@ for i,row in enumerate(csvdata):
     #count the total votes
     voter_count += 1
 
-    #count total votes per candidate w/ votes
+    #count votes per candidate
+    candidate_results = {
+        "Khan": (len(khan)),
+        "Correy": (len(correy)),
+        "O'Tooley": (len(li))
+    }
     #identify election winner
     #month_count += 1
     
@@ -66,6 +75,8 @@ analysis_text = (
     "Election Results \n"
     "------------------------- \n"
     f"Total Votes: {voter_count} \n"
+    "------------------------- \n"
+    "------------------------- \n"
 )
 
 # #PRINT EVERYTHING
