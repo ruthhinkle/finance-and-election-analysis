@@ -25,7 +25,8 @@ import csv
 csvpath = os.path.join("Resources", "election_data.csv")
 voter_ID = []
 county = []
-candidate = {}
+#candidate = [2]
+
 
 #READ / INTERPRET
 #open the CSV
@@ -36,29 +37,34 @@ with open(csvpath, mode= "r") as csvfile:
     header = next(csvreader)
     csvdata = list(csvreader)
 
-#define total votes, 
+#set voter count & candidate_count to zero
 voter_count = 0
-candidate_count = 0
-# khan = 0
-# correy = 0
-# otooley = 0
-# li = 0
+# candidate_count = 0
 
 #loop through rows
 for i,row in enumerate(csvdata):
-        
+
     #count the total votes
     voter_count += 1
-
-    #count votes per candidate
-    candidate_results = {
-        "Khan": (len(khan)),
-        "Correy": (len(correy)),
-        "O'Tooley": (len(li))
-    }
-    #identify election winner
-    #month_count += 1
     
+    #Add candidates names to dictionary and count their total votes each
+    candidate_count = {}
+    candidate = row [2]
+    if candidate in candidate_count.keys():
+        candidate_count[candidate] += 1
+    else:
+        candidate_count[candidate] = 1
+
+    #Calculate percentage of the total vote for each candidate
+    percentage = []
+    for i in candidate_count:
+        percentage = (float(candidate_count[i]) / voter_count) * 100
+        results = (f"{i} {round(percentage,0)}%  ({candidate_count[i]})")
+
+
+    
+    #identify election winner
+
     #average changes
     #try:
         #sum_changes += int(csvdata[i+1][1]) - int(row[1])
@@ -70,13 +76,20 @@ for i,row in enumerate(csvdata):
     #dates.append(row[0])
     #define list
 
+    for key in candidate_count.keys():
+        if candidate_count[key] == max(candidate_count.values()):
+            winner = key
+
+
 #DEFINE WHAT TO PRINT
 analysis_text = (
     "Election Results \n"
     "------------------------- \n"
     f"Total Votes: {voter_count} \n"
     "------------------------- \n"
-    "------------------------- \n"
+    f"{results} \n"
+    "------------------------- \n"    
+    f"Winner: {winner} \n"
 )
 
 # #PRINT EVERYTHING

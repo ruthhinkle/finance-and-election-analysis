@@ -23,7 +23,7 @@ csvpath = os.path.join("Resources", "budget_data.csv")
 dates = []
 profit_losses = []
 
-#READ / INTERPRET
+#READ & INTERPRET THE DATA
 #open the CSV
 with open(csvpath, mode= "r") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
@@ -32,30 +32,29 @@ with open(csvpath, mode= "r") as csvfile:
     header = next(csvreader)
     csvdata = list(csvreader)
 
-#define month count and sum changes
+#efine month count and sum changes
 sum_changes = 0
 month_count = 0
 
-#loop through rows
-for i,row in enumerate(csvdata):
+#Loop through rows
+#Source: Enumerate function suggested by tutor
+    for i,row in enumerate(csvdata):
+            
+        #sum count of months
+        month_count += 1
         
-    #sum count of months
-    month_count += 1
-    
-    #sum total profit/losses
-    total_change = sum(profit_losses)
+        #sum total profit/losses
+        total_change = sum(profit_losses)
 
-    #average changes
-    try:
-        sum_changes += int(csvdata[i+1][1]) - int(row[1])
-    except:
-        sum_changes += 0
+        #average changes
+        try:
+            sum_changes += int(csvdata[i+1][1]) - int(row[1])
+        except:
+            sum_changes += 0
 
-    #append total profit/loss
-    profit_losses.append(int(row[1]))
-    dates.append(row[0])
-
-
+        #append total profit/loss
+        profit_losses.append(int(row[1]))
+        dates.append(row[0])
 
 #DEFINE WHAT TO PRINT
 #print # of months
