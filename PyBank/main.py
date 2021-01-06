@@ -25,23 +25,23 @@ sum_changes = 0
 month_count = 0
 
 #Loop through rows, SOURCE: enumerate function suggested by tutor
-    for i,row in enumerate(csvdata):
-            
-        #sum count of months
-        month_count += 1
+for i,row in enumerate(csvdata):
         
-        #sum total profit/losses
-        total_change = sum(profit_losses)
+    #sum count of months
+    month_count += 1
+    
+    #sum total profit/losses
+    total_change = sum(profit_losses)
 
-        #average changes
-        try:
-            sum_changes += int(csvdata[i+1][1]) - int(row[1])
-        except:
-            sum_changes += 0
+    #average changes
+    try:
+        sum_changes += int(csvdata[i+1][1]) - int(row[1])
+    except:
+        sum_changes += 0
 
-        #append total profit/loss
-        profit_losses.append(int(row[1]))
-        dates.append(row[0])
+    #append total profit/loss
+    profit_losses.append(int(row[1]))
+    dates.append(row[0])
 
 #DEFINE WHAT TO PRINT
 analysis_text = (
