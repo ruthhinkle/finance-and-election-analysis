@@ -1,15 +1,6 @@
 # Python Challenge
 
-### Respository Contents
-* PyBank 
-    * Analysis: analysis.txt
-    * Resources: budget_data.csv
-    * main.py
-* PyPoll
-    * Analysis: analysis.txt
-    * Resources: election_data.csv
-    * main.py
-
+![Header: US Paper Currency](https://github.com/ruthhinkle/python-challenge/blob/main/Images/bank.png)
 ## PyBank: Analyzing Financial Records
 
 ### Objective
@@ -23,6 +14,7 @@ This Python script analyzes a CSV file financial data to calculate the following
 The script prints the results to both the terminal and a txt file.
 
 
+![Header: "I Voted" Stickers on White Background](https://github.com/ruthhinkle/python-challenge/blob/main/Images/vote.png)
 ## PyPoll: Analyzing Election Results
 
 ### Objective
@@ -34,3 +26,13 @@ This Python script analyzes a CSV file of election results to calculate the foll
 * The winner of the election based on popular vote.
 
 The script prints the results to both the terminal and a txt file. 
+
+### Respository Contents
+* PyBank 
+    * Analysis: analysis.txt
+    * Resources: budget_data.csv
+    * main.py
+* PyPoll
+    * Analysis: analysis.txt
+    * Resources: election_data.csv
+    * main.py
