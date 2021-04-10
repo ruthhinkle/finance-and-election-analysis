@@ -1,7 +1,7 @@
 # Python Challenge
 
-![Header: US Paper Currency](https://github.com/ruthhinkle/python-challenge/blob/main/Images/bank.png)
 ## PyBank: Analyzing Financial Records
+![Header: US Paper Currency](https://github.com/ruthhinkle/python-challenge/blob/main/Images/bank.png)
 
 ### Objective
 This Python script analyzes a CSV file financial data to calculate the following:
@@ -13,9 +13,8 @@ This Python script analyzes a CSV file financial data to calculate the following
 
 The script prints the results to both the terminal and a txt file.
 
-
-![Header: "I Voted" Stickers on White Background](https://github.com/ruthhinkle/python-challenge/blob/main/Images/vote.png)
 ## PyPoll: Analyzing Election Results
+![Header: "I Voted" Stickers on White Background](https://github.com/ruthhinkle/python-challenge/blob/main/Images/vote.png)
 
 ### Objective
 This Python script analyzes a CSV file of election results to calculate the following: 
